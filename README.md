@@ -1,57 +1,82 @@
-# 🚀 Getting started with Strapi
+# Strapi v4 com configuração para o banco de dados Postgres
 
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html) (CLI) which lets you scaffold and manage your project in seconds.
+## Motivação
 
-### `develop`
+Esse repositório faz parte de uma publicação no [Medium](https://medium.com/@nicolasaigner/strapi-4-com-postgres-no-docker-4a0b507e30c8) passando por um tutorial de como rodar em desenvolvimento o Strapi na versão 4.1.12 com um banco de dados Postgres diretamente no Docker, evitando assim instalar Node, NPM, Yarn e banco de dados no seu computador.
 
-Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-develop)
+## Como rodar o projeto
 
-```
-npm run develop
-# or
-yarn develop
-```
 
-### `start`
+## Configuração
 
-Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-start)
+Crie uma network para comunicação entre o banco e a aplicação
 
 ```
-npm run start
-# or
-yarn start
+docker network create --driver bridge strapi-net
 ```
 
-### `build`
+## Banco de dados
 
-Build your admin panel. [Learn more](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-build)
+Inicie o banco de dados Postgres
 
 ```
-npm run build
-# or
-yarn build
+docker run -d --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=strapi -e POSTGRES_HOST_AUTH_METHOD=trust --network strapi-net postgres:latest
 ```
 
-## ⚙️ Deployment
+## Rodando o projeto baixando a imagem do Docker Hub
 
-Strapi gives you many possible deployment options for your project. Find the one that suits you on the [deployment section of the documentation](https://docs.strapi.io/developer-docs/latest/setup-deployment-guides/deployment.html).
+Execute o comando para rodar o projeto com uma imagem base do Strapi publicada no [Docker Hub](https://hub.docker.com/repository/docker/nicolasaigner/strapi-v4-postgres)
 
-## 📚 Learn more
+| Nota: Verifique que no comando abaixo está sendo criada uma pasta do projeto na pasta atual e uma pasta chamada Strapi |
+| --- |
 
-- [Resource center](https://strapi.io/resource-center) - Strapi resource center.
-- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
-- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
-- [Strapi blog](https://docs.strapi.io) - Official Strapi blog containing articles made by the Strapi team and the community.
-- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general improvements.
+```
+docker run -d --name strapi -p 1337:1337 --network strapi-net -v ${PWD}/strapi/:/usr/src/app/ nicolasaigner/strapi-v4-postgres:latest
 
-Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/strapi). Your feedback and contributions are welcome!
+```
 
-## ✨ Community
+Com isso, você vai baixar a imagem que criei e publiquei, vai gerar uma pasta chamada strapi e vai começar a instalação do Strapi 4.1.12 com o Node na versão 16.0.0 e vai iniciar o Strapi em [localhost:1337](http://localhost:1337).
 
-- [Discord](https://discord.strapi.io) - Come chat with the Strapi community including the core team.
-- [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
-- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
+Você pode chegar esse processo verificando os logs do container
 
----
+```
+docker logs -f strapi
+```
 
-<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
+## Rodando o projeto baixando esse repositório
+
+Faça um clone do projeto
+
+```
+git clone https://github.com/nicolasaigner/strapi-v4-postgres.git strapi
+```
+
+Acesse a pasta do projeto
+
+```
+cd strapi
+```
+
+Faça um build para gerar uma imagem no Docker
+
+```
+docker build strapi:latest .
+```
+
+Quando finalizar, rode a imagem com o comando abaixo:
+
+```
+docker run -d --name strapi -p 1337:1337 --network strapi-net -v ${PWD}/strapi/:/usr/src/app/ strapi:latest
+```
+
+Com isso, você vai gerar o build com o nome strapi:latest o que vai gerar uma imagem. Com o comando de run do Docker, vai gerar uma pasta chamada strapi e vai começar a instalação do Strapi 4.1.12 com o Node na versão 16.0.0 e vai iniciar o Strapi em [localhost:1337](http://localhost:1337).
+
+Você pode chegar esse processo verificando os logs do container
+
+```
+docker logs -f strapi
+```
+
+# Conclusão
+
+Pronto, agora você tem um projeto do Strapi na versão 4 comunicando com o Postgres e com a pasta de todo o código no seu computador, case precise alterar algo no código ou algo do tipo.
