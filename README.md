@@ -60,7 +60,7 @@ cd strapi
 Faça um build para gerar uma imagem no Docker
 
 ```
-docker build strapi:latest .
+docker build --tag strapi:latest .
 ```
 
 Quando finalizar, rode a imagem com o comando abaixo:
