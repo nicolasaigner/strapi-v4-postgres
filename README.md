@@ -66,7 +66,25 @@ docker build --tag strapi:latest .
 Quando finalizar, rode a imagem com o comando abaixo:
 
 ```
-docker run -d --name strapi -p 1337:1337 --network strapi-net -v ${PWD}/strapi/:/usr/src/app/ strapi:latest
+docker run -d --name strapi -p 1337:1337 --network strapi-net -v ${PWD}/:/usr/src/app/ strapi:latest
+```
+
+Caso o Strapi não inicie, verifique os logs do container usando o comando abaixo:
+
+```
+docker logs -f strapi
+```
+
+E verifique também se a pasta node_mdoules foi criada, se não foi criada, execute o comando abaixo:
+
+```
+docker container prune -f && docker run -d --name strapi -p 1337:1337 --network strapi-net -v ${PWD}/:/usr/src/app/ strapi:latest yarn
+```
+
+E depois execute novamnete o comando para rodar o container do Strapi, mas sem o comando yarn no final:
+
+```
+docker container prune -f && docker run -d --name strapi -p 1337:1337 --network strapi-net -v ${PWD}/:/usr/src/app/ strapi:latest
 ```
 
 Com isso, você vai gerar o build com o nome strapi:latest o que vai gerar uma imagem. Com o comando de run do Docker, vai gerar uma pasta chamada strapi e vai começar a instalação do Strapi 4.1.12 com o Node na versão 16.0.0 e vai iniciar o Strapi em [localhost:1337](http://localhost:1337).
