@@ -48,7 +48,7 @@ docker logs -f strapi
 Faça um clone do projeto
 
 ```
-git clone https://github.com/nicolasaigner/strapi-v4-postgres.git strapi
+git clone https://github.com/nicolasaigner/strapi-v4-postgres.git -b feature/components strapi
 ```
 
 Acesse a pasta do projeto
