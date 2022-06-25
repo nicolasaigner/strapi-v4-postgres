@@ -4,9 +4,8 @@
   "version": "0.1.0",
   "description": "A Strapi application",
   "scripts": {
-    "develop": "strapi develop",
     "start": "strapi develop",
-    "start:strapi": "strapi start",
+    "homolog": "strapi start",
     "build": "strapi build",
     "strapi": "strapi",
     "seed": "node script/seed.js"
@@ -17,6 +16,7 @@
     "@strapi/plugin-users-permissions": "4.2.0",
     "@strapi/plugin-i18n": "4.2.0",
     "pg": "8.6.0",
+    "pg-connection-string": "2.5.0",
     "unzip-stream": "^0.3.1",
     "uuid-v4": "^0.1.0",
     "fs": "^0.0.1-security",
@@ -24,11 +24,6 @@
     "lodash": "^4.17.21",
     "lodash.set": "^4.3.2",
     "@strapi/plugin-seo": "^1.7.3"
-    "@strapi/strapi": "^4.2.0",
-    "@strapi/plugin-users-permissions": "^4.2.0",
-    "@strapi/plugin-i18n": "^4.2.0",
-    "pg": "8.6.0",
-    "pg-connection-string": "2.5.0"
   },
   "author": {
     "name": "Nícolas Aigner"
