@@ -19,7 +19,7 @@ jobs:
         with:
           image: nicolasaigner/strapi-v4-postgres
           tags: v1, latest
-          registry: hub.docker.com
+          registry: docker.io
           dockerfile: Dockerfile
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASS }}
