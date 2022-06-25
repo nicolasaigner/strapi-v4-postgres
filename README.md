@@ -1,4 +1,4 @@
-# Strapi v4 com configuração para o banco de dados Postgres
+# Strapi v4 com configuração para o banco de dados Postgres [![CircleCI](https://dl.circleci.com/status-badge/img/gh/nicolasaigner/strapi-v4-postgres/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/nicolasaigner/strapi-v4-postgres/tree/main)
 
 ## Motivação
 
