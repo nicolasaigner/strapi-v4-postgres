@@ -17,7 +17,7 @@ jobs:
       - uses: mr-smithers-excellent/docker-build-push@v3
         name: Build & push Docker image
         with:
-          image: repo/image
+          image: nicolasaigner/strapi-v4-postgres
           tags: v1, latest
           registry: hub.docker.com
           dockerfile: Dockerfile
