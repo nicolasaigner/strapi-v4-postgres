@@ -1,0 +1,24 @@
+version: 2.1
+executors:
+  my-custom-executor:
+    docker:
+      - image: cimg/base:stable
+        auth:
+          # ensure you have first added these secrets
+          # visit app.circleci.com/settings/project/github/nicolasaigner/strapi-v4-postgres/environment-variables
+          username: $DOCKER_HUB_USER
+          password: $DOCKER_HUB_PASSWORD
+jobs:
+  build:
+    environment:
+      IMAGE: strapi-v4-postgres
+    executor: my-custom-executor
+    steps:
+      - checkout
+      - run: |
+          # docker build --tag ${IMAGE}
+
+workflows:
+  my-custom-workflow:
+    jobs:
+      - build
