@@ -24,10 +24,10 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASS }}
       
-      - name: Deploy to Heroku
-        uses: AkhileshNS/heroku-deploy@v3.12.12
-        with:
-          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_email: ${{ secrets.HEROKU_EMAIL }}
-          heroku_app_name: strapi-v4-nicolas
+      #- name: Deploy to Heroku
+      #  uses: AkhileshNS/heroku-deploy@v3.12.12
+      #  with:
+      #    heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+      #    heroku_email: ${{ secrets.HEROKU_EMAIL }}
+      #    heroku_app_name: strapi-v4-nicolas
     
