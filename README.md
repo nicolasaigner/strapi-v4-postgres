@@ -1,7 +1,6 @@
 # Strapi v4 com configuração para o banco de dados Postgres 
 
 [![Docker Image CI](https://github.com/nicolasaigner/strapi-v4-postgres/actions/workflows/build_push_docker.yml/badge.svg)](https://github.com/nicolasaigner/strapi-v4-postgres/actions/workflows/build_push_docker.yml)
-[![CircleCI](https://dl.circleci.com/status-badge/img/gh/nicolasaigner/strapi-v4-postgres/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/nicolasaigner/strapi-v4-postgres/tree/main)
 
 ## Motivação
 
