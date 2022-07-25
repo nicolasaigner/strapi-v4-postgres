@@ -1,4 +1,4 @@
-FROM node:16.0.0
+FROM node:16
 
 ARG NODE_ENV=development
 ENV NODE_ENV $NODE_ENV
