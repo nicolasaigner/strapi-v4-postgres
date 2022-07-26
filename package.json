@@ -15,7 +15,7 @@
     "@strapi/strapi": "^4.2.2",
     "@strapi/plugin-users-permissions": "^4.2.2",
     "@strapi/plugin-i18n": "^4.2.2",
-    "pg": "8.6.0",
+    "pg": "8.7.3",
     "pg-connection-string": "2.5.0",
     "unzip-stream": "^0.3.1",
     "uuid-v4": "^0.1.0",
